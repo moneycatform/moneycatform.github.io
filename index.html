@@ -77,9 +77,62 @@ frameborder="0" picture-in-picture ></iframe>
   <li class="dropdown">
  <a href="javascript:void(1)" class="dropbtn">Clip Hướng Dẫn</a>
 <div class="dropdown-content dropdown-menu-center">
-<iframe id="ytplayer" type="text/html" width="1500px" height="800px"
-src="https://tinyurl.com/solvebpmoffice1"
+<iframe id="ytplayer" type="text/html" width="1500px" height="600px"
+src="https://script.google.com/macros/s/AKfycbzkU6R1S_z_HHgQCAhYKSB3mYSdLdGBsq98t8gzwPqcpj4eNy4rADBbVez7ZePeW5HV/exec"
 frameborder="0" picture-in-picture ></iframe>
+    </div>
+<li class="dropdown">
+<a href="javascript:void(1)" class="dropbtn">Clip hướng dẫn</a>
+<div class="dropdown-content dropdown-menu-center">
+<iframe id="existing-iframe-example"
+        width="1500" height="600"
+        src="https://www.youtube.com/embed/?listType=playlist&autoplay=1&list=PLpSx4MJqqM-R0UxrGGqtszgyErC4a_hFh" 
+        frameborder="0"
+        style="border: solid 4px #37474F"
+></iframe>
+
+<script type="text/javascript">
+  var tag = document.createElement('script');
+  tag.id = 'iframe-demo';
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('existing-iframe-example', {
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+    });
+  }
+  function onPlayerReady(event) {
+    document.getElementById('existing-iframe-example').style.borderColor = '#FF6D00';
+  }
+  function changeBorderColor(playerStatus) {
+    var color;
+    if (playerStatus == -1) {
+      color = "#37474F"; // unstarted = gray
+    } else if (playerStatus == 0) {
+      color = "#FFFF00"; // ended = yellow
+    } else if (playerStatus == 1) {
+      color = "#33691E"; // playing = green
+    } else if (playerStatus == 2) {
+      color = "#DD2C00"; // paused = red
+    } else if (playerStatus == 3) {
+      color = "#AA00FF"; // buffering = purple
+    } else if (playerStatus == 5) {
+      color = "#FF6DOO"; // video cued = orange
+    }
+    if (color) {
+      document.getElementById('existing-iframe-example').style.borderColor = color;
+    }
+  }
+  function onPlayerStateChange(event) {
+    changeBorderColor(event.data);
+  }
+</script>
 <li class="dropdown">
 <a href="javascript:void(2)" class="dropbtn">Download Tool</a>
 <div class="dropdown-content dropdown-menu-center">
